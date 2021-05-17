@@ -517,21 +517,21 @@
 <p>下载之后通过命令核对安装包大小是否符合</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">ls</span> -lht
 </code></pre>
-<h2 id="3-安装"><a href="#3-安装" class="headerlink" title="3.安装"></a>3.安装</h2><h6 id="（1）首先创建安装目录"><a href="#（1）首先创建安装目录" class="headerlink" title="（1）首先创建安装目录"></a>（1）首先创建安装目录</h6><pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> /usr/local/java/
+<h2 id="3-安装"><a href="#3-安装" class="headerlink" title="3.安装"></a>3.安装</h2><h3 id="（1）首先创建安装目录"><a href="#（1）首先创建安装目录" class="headerlink" title="（1）首先创建安装目录"></a>（1）首先创建安装目录</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> /usr/local/java/
 </code></pre>
-<h6 id="（2）然后将下载下来的压缩包解压到安装目录"><a href="#（2）然后将下载下来的压缩包解压到安装目录" class="headerlink" title="（2）然后将下载下来的压缩包解压到安装目录"></a>（2）然后将下载下来的压缩包解压到安装目录</h6><pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf jdk-8u291-linux-x64.tar.gz -C /usr/local/java
+<h3 id="（2）然后将下载下来的压缩包解压到安装目录"><a href="#（2）然后将下载下来的压缩包解压到安装目录" class="headerlink" title="（2）然后将下载下来的压缩包解压到安装目录"></a>（2）然后将下载下来的压缩包解压到安装目录</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf jdk-8u291-linux-x64.tar.gz -C /usr/local/java
 </code></pre>
 <p>注意：这里的-C是指定压缩目录</p>
-<h2 id="4-设置环境变量"><a href="#4-设置环境变量" class="headerlink" title="4.设置环境变量"></a>4.设置环境变量</h2><h6 id="（1）打开文件"><a href="#（1）打开文件" class="headerlink" title="（1）打开文件"></a>（1）打开文件</h6><pre class=" language-bash"><code class="language-bash">vim /etc/profile
+<h2 id="4-设置环境变量"><a href="#4-设置环境变量" class="headerlink" title="4.设置环境变量"></a>4.设置环境变量</h2><h3 id="（1）打开文件"><a href="#（1）打开文件" class="headerlink" title="（1）打开文件"></a>（1）打开文件</h3><pre class=" language-bash"><code class="language-bash">vim /etc/profile
 </code></pre>
-<h6 id="（2）shift-g进入文末，按i进入编辑模式，在最后一行开始添加"><a href="#（2）shift-g进入文末，按i进入编辑模式，在最后一行开始添加" class="headerlink" title="（2）shift+g进入文末，按i进入编辑模式，在最后一行开始添加"></a>（2）shift+g进入文末，按i进入编辑模式，在最后一行开始添加</h6><pre><code>export JAVA_HOME=/usr/local/java/jdk1.8.0_291
+<h3 id="（2）shift-g进入文末，按i进入编辑模式，在最后一行开始添加"><a href="#（2）shift-g进入文末，按i进入编辑模式，在最后一行开始添加" class="headerlink" title="（2）shift+g进入文末，按i进入编辑模式，在最后一行开始添加"></a>（2）shift+g进入文末，按i进入编辑模式，在最后一行开始添加</h3><pre class=" language-shell"><code class="language-shell">export JAVA_HOME=/usr/local/java/jdk1.8.0_291
 export JRE_HOME=${JAVA_HOME}/jre
 export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
 </code></pre>
-<h6 id="（3）使得环境变量生效"><a href="#（3）使得环境变量生效" class="headerlink" title="（3）使得环境变量生效"></a>（3）使得环境变量生效</h6><pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile
+<h3 id="（3）使得环境变量生效"><a href="#（3）使得环境变量生效" class="headerlink" title="（3）使得环境变量生效"></a>（3）使得环境变量生效</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile
 </code></pre>
-<h6 id="（4）添加软连接（快捷方式）"><a href="#（4）添加软连接（快捷方式）" class="headerlink" title="（4）添加软连接（快捷方式）"></a>（4）添加软连接（快捷方式）</h6><pre class=" language-shell"><code class="language-shell">ln -s /usr/local/java/jdk1.8.0_291/bin/java /usr/bin/java
+<h3 id="（4）添加软连接（快捷方式）"><a href="#（4）添加软连接（快捷方式）" class="headerlink" title="（4）添加软连接（快捷方式）"></a>（4）添加软连接（快捷方式）</h3><pre class=" language-shell"><code class="language-shell">ln -s /usr/local/java/jdk1.8.0_291/bin/java /usr/bin/java
 </code></pre>
 <h2 id="5-检查"><a href="#5-检查" class="headerlink" title="5.检查"></a>5.检查</h2><pre class=" language-shell"><code class="language-shell">java -version
 </code></pre>
@@ -1345,7 +1345,7 @@ export PATH=${JAVA_HOME}/bin:$PATH
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">803</span>
+                        class="white-color">800</span>
             
             
             
