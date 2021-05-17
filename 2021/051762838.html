@@ -505,12 +505,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>前言：最近看到阿里云主机有新人优惠，嘿嘿。我就注册了一个新的账号，买了一台，然后开始安装我们的各种工具。但是，安装工具时发现java环境没有装，于是我就开始我的安装之旅。<br>1.打开url选择jdk1.8下载</p>
-<p>[<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html]">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html]</a></p>
+                <p>前言：最近看到阿里云主机有新人优惠，嘿嘿。我就注册了一个新的账号，买了一台，然后开始安装我们的各种工具。但是，安装工具时发现java环境没有装，于是我就开始我的安装之旅。</p>
+<h2 id="1-打开url选择jdk1-8下载"><a href="#1-打开url选择jdk1-8下载" class="headerlink" title="1.打开url选择jdk1.8下载"></a>1.打开url选择jdk1.8下载</h2><p>[<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html]">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html]</a></p>
 <p>我选择Linux x64的版本：</p>
 <p><img src="../images/1.png"></p>
-<p>2.下载</p>
-<p>这里你可以选择在服务器中直接使用命令：</p>
+<h2 id="2-下载"><a href="#2-下载" class="headerlink" title="2.下载"></a>2.下载</h2><p>这里你可以选择在服务器中直接使用命令：</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">wget</span> https://download.oracle.com/otn/java/jdk/8u291-b10/d7fc238d0cbf4b0dac67be84580cfb4b/jdk-8u291-linux-x64.tar.gz
 </code></pre>
 <p>当然了你也可以将压缩包下载到本地利用finalshell进行上传</p>
@@ -518,32 +517,23 @@
 <p>下载之后通过命令核对安装包大小是否符合</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">ls</span> -lht
 </code></pre>
-<p>3.安装</p>
-<p>（1）首先创建安装目录</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> /usr/local/java/
+<h2 id="3-安装"><a href="#3-安装" class="headerlink" title="3.安装"></a>3.安装</h2><h6 id="（1）首先创建安装目录"><a href="#（1）首先创建安装目录" class="headerlink" title="（1）首先创建安装目录"></a>（1）首先创建安装目录</h6><pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> /usr/local/java/
 </code></pre>
-<p>（2）然后将下载下来的压缩包解压到安装目录</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf jdk-8u291-linux-x64.tar.gz -C /usr/local/java
+<h6 id="（2）然后将下载下来的压缩包解压到安装目录"><a href="#（2）然后将下载下来的压缩包解压到安装目录" class="headerlink" title="（2）然后将下载下来的压缩包解压到安装目录"></a>（2）然后将下载下来的压缩包解压到安装目录</h6><pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf jdk-8u291-linux-x64.tar.gz -C /usr/local/java
 </code></pre>
 <p>注意：这里的-C是指定压缩目录</p>
-<p>4.设置环境变量</p>
-<p>（1）打开文件</p>
-<pre class=" language-bash"><code class="language-bash">vim /etc/profile
+<h2 id="4-设置环境变量"><a href="#4-设置环境变量" class="headerlink" title="4.设置环境变量"></a>4.设置环境变量</h2><h6 id="（1）打开文件"><a href="#（1）打开文件" class="headerlink" title="（1）打开文件"></a>（1）打开文件</h6><pre class=" language-bash"><code class="language-bash">vim /etc/profile
 </code></pre>
-<p>（2）shift+g进入文末，按i进入编辑模式，在最后一行开始添加</p>
-<pre><code>export JAVA_HOME=/usr/local/java/jdk1.8.0_291
+<h6 id="（2）shift-g进入文末，按i进入编辑模式，在最后一行开始添加"><a href="#（2）shift-g进入文末，按i进入编辑模式，在最后一行开始添加" class="headerlink" title="（2）shift+g进入文末，按i进入编辑模式，在最后一行开始添加"></a>（2）shift+g进入文末，按i进入编辑模式，在最后一行开始添加</h6><pre><code>export JAVA_HOME=/usr/local/java/jdk1.8.0_291
 export JRE_HOME=${JAVA_HOME}/jre
 export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
 </code></pre>
-<p>（3）使得环境变量生效</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile
+<h6 id="（3）使得环境变量生效"><a href="#（3）使得环境变量生效" class="headerlink" title="（3）使得环境变量生效"></a>（3）使得环境变量生效</h6><pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile
 </code></pre>
-<p>（4）添加软连接（快捷方式）</p>
-<pre class=" language-shell"><code class="language-shell">ln -s /usr/local/java/jdk1.8.0_291/bin/java /usr/bin/java
+<h6 id="（4）添加软连接（快捷方式）"><a href="#（4）添加软连接（快捷方式）" class="headerlink" title="（4）添加软连接（快捷方式）"></a>（4）添加软连接（快捷方式）</h6><pre class=" language-shell"><code class="language-shell">ln -s /usr/local/java/jdk1.8.0_291/bin/java /usr/bin/java
 </code></pre>
-<p>5.检查</p>
-<pre class=" language-shell"><code class="language-shell">java -version
+<h2 id="5-检查"><a href="#5-检查" class="headerlink" title="5.检查"></a>5.检查</h2><pre class=" language-shell"><code class="language-shell">java -version
 </code></pre>
 <p><img src="../images/3.png"></p>
 
@@ -1099,6 +1089,10 @@ export PATH=${JAVA_HOME}/bin:$PATH
                         <span class="chip bg-color">XSS</span>
                     </a>
                     
+                    <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">
+                        <span class="chip bg-color">渗透测试</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1231,12 +1225,6 @@ export PATH=${JAVA_HOME}/bin:$PATH
 
 <!-- TOC 悬浮按钮. -->
 
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
 
 <script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
@@ -1275,41 +1263,6 @@ export PATH=${JAVA_HOME}/bin:$PATH
             }
         });
 
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
         
     });
 </script>
@@ -1392,7 +1345,7 @@ export PATH=${JAVA_HOME}/bin:$PATH
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">804</span>
+                        class="white-color">803</span>
             
             
             

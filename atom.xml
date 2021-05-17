@@ -6,7 +6,7 @@
   <link href="https://salute-s.github.io/atom.xml" rel="self"/>
   
   <link href="https://salute-s.github.io/"/>
-  <updated>2021-05-17T13:34:01.701Z</updated>
+  <updated>2021-05-17T14:06:52.577Z</updated>
   <id>https://salute-s.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://salute-s.github.io/2021/05177225.html"/>
     <id>https://salute-s.github.io/2021/05177225.html</id>
     <published>2021-05-17T08:12:09.000Z</published>
-    <updated>2021-05-17T13:34:01.701Z</updated>
+    <updated>2021-05-17T14:06:52.577Z</updated>
     
     
       
@@ -41,6 +41,8 @@
     
     <category term="XSS" scheme="https://salute-s.github.io/tags/XSS/"/>
     
+    <category term="渗透测试" scheme="https://salute-s.github.io/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
   </entry>
   
   <entry>
@@ -48,15 +50,15 @@
     <link href="https://salute-s.github.io/2021/051762838.html"/>
     <id>https://salute-s.github.io/2021/051762838.html</id>
     <published>2021-05-17T04:46:42.000Z</published>
-    <updated>2021-05-17T13:36:00.071Z</updated>
+    <updated>2021-05-17T14:14:18.811Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;前言：最近看到阿里云主机有新人优惠，嘿嘿。我就注册了一个新的账号，买了一台，然后开始安装我们的各种工具。但是，安装工具时发现java环境没有装，于是我就开始我的安装之旅。&lt;br&gt;1.打开url选择jdk1.8下载&lt;/p&gt;
-&lt;p&gt;[&lt;a</summary>
+    <summary type="html">&lt;p&gt;前言：最近看到阿里云主机有新人优惠，嘿嘿。我就注册了一个新的账号，买了一台，然后开始安装我们的各种工具。但是，安装工具时发现java环境没有装，于是我就开始我的安装之旅。&lt;/p&gt;
+&lt;h2 id=&quot;1-打开url选择jdk1-8下载&quot;&gt;&lt;a</summary>
         
       
     
