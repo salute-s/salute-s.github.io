@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Salute&#39;s blogs</title>
+  
+  <subtitle>Salute</subtitle>
+  <link href="https://salute-s.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://salute-s.github.io/"/>
+  <updated>2021-05-17T05:00:12.101Z</updated>
+  <id>https://salute-s.github.io/</id>
+  
+  <author>
+    <name>Sererdipity</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>centos7服务器安装java环境</title>
+    <link href="https://salute-s.github.io/2021/051762838.html"/>
+    <id>https://salute-s.github.io/2021/051762838.html</id>
+    <published>2021-05-17T04:46:42.000Z</published>
+    <updated>2021-05-17T05:00:12.101Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://salute-s.github.io/2021/051616107.html"/>
+    <id>https://salute-s.github.io/2021/051616107.html</id>
+    <published>2021-05-16T12:59:12.264Z</published>
+    <updated>2021-05-16T12:59:12.264Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
