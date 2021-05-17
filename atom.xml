@@ -6,7 +6,7 @@
   <link href="https://salute-s.github.io/atom.xml" rel="self"/>
   
   <link href="https://salute-s.github.io/"/>
-  <updated>2021-05-17T07:44:40.085Z</updated>
+  <updated>2021-05-17T08:38:39.476Z</updated>
   <id>https://salute-s.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>XMind思维导图XSS漏洞复现</title>
+    <link href="https://salute-s.github.io/2021/05177225.html"/>
+    <id>https://salute-s.github.io/2021/05177225.html</id>
+    <published>2021-05-17T08:12:09.000Z</published>
+    <updated>2021-05-17T08:38:39.476Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;简介&lt;/strong&gt;：XMind 是一个全功能的思维导图和头脑风暴软件，为激发灵感和创意而生。作为一款有效提升工作和生活效率的生产力工具，受到全球百千万用户的青睐。近期各大公众号平台曝出XMind</summary>
+        
+      
+    
+    
+    
+    <category term="漏洞复现" scheme="https://salute-s.github.io/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="漏洞复现" scheme="https://salute-s.github.io/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    <category term="XSS" scheme="https://salute-s.github.io/tags/XSS/"/>
+    
+  </entry>
   
   <entry>
     <title>Centos7服务器安装java环境</title>
