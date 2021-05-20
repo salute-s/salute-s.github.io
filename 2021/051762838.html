@@ -17,7 +17,7 @@
 
 
     <title>Centos7服务器安装java环境 | Salute&#39;s blogs</title>
-    <link rel="icon" type="image/jpeg" href="/salute.jpg">
+    <link rel="icon" type="image/jpeg" href="/medias/hh.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Salute's blogs" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Salute's blogs" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -50,7 +50,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/medias/hh.jpg" class="logo-img" alt="LOGO">
+                    <img src="/medias/salute.jpg" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">Salute&#39;s blogs</span>
                 </a>
@@ -149,7 +149,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/hh.jpg" class="logo-img circle responsive-img">
+        <img src="/medias/salute.jpg" class="logo-img circle responsive-img">
         
         <div class="logo-name">Salute&#39;s blogs</div>
         <div class="logo-desc">
@@ -476,7 +476,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-17
+                    2021-05-20
                 </div>
                 
 
@@ -508,12 +508,12 @@
                 <p>前言：最近看到阿里云主机有新人优惠，嘿嘿。我就注册了一个新的账号，买了一台，然后开始安装我们的各种工具。但是，安装工具时发现java环境没有装，于是我就开始我的安装之旅。</p>
 <h2 id="1-打开url选择jdk1-8下载"><a href="#1-打开url选择jdk1-8下载" class="headerlink" title="1.打开url选择jdk1.8下载"></a>1.打开url选择jdk1.8下载</h2><p>[<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html]">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html]</a></p>
 <p>我选择Linux x64的版本：</p>
-<p><img src="../images/1.png"></p>
+<p><img src="../images/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/1.png"></p>
 <h2 id="2-下载"><a href="#2-下载" class="headerlink" title="2.下载"></a>2.下载</h2><p>这里你可以选择在服务器中直接使用命令：</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">wget</span> https://download.oracle.com/otn/java/jdk/8u291-b10/d7fc238d0cbf4b0dac67be84580cfb4b/jdk-8u291-linux-x64.tar.gz
 </code></pre>
 <p>当然了你也可以将压缩包下载到本地利用finalshell进行上传</p>
-<p><img src="../images/2.png"></p>
+<p><img src="../images/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/2.png"></p>
 <p>下载之后通过命令核对安装包大小是否符合</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">ls</span> -lht
 </code></pre>
@@ -535,7 +535,7 @@ export PATH=${JAVA_HOME}/bin:$PATH
 </code></pre>
 <h2 id="5-检查"><a href="#5-检查" class="headerlink" title="5.检查"></a>5.检查</h2><pre class=" language-shell"><code class="language-shell">java -version
 </code></pre>
-<p><img src="../images/3.png"></p>
+<p><img src="../images/centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85java%E7%8E%AF%E5%A2%83/3.png"></p>
 
                 
             </div>
@@ -544,41 +544,6 @@ export PATH=${JAVA_HOME}/bin:$PATH
             
 
     <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        文章作者:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">sererdipity</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        文章链接:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="https://salute-s.github.io/2021/051762838.html">https://salute-s.github.io/2021/051762838.html</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        版权声明:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    许可协议。转载请注明来源
-                    <a href="/about" target="_blank">sererdipity</a>
-                    !
-                </span>
-            </div>
         
     </div>
 
@@ -1201,8 +1166,6 @@ export PATH=${JAVA_HOME}/bin:$PATH
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
 
 <!-- 代码块复制 -->
 
@@ -1224,6 +1187,12 @@ export PATH=${JAVA_HOME}/bin:$PATH
 </div>
 
 <!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
 
 
 <script src="/libs/tocbot/tocbot.min.js"></script>
@@ -1263,6 +1232,41 @@ export PATH=${JAVA_HOME}/bin:$PATH
             }
         });
 
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
         
     });
 </script>

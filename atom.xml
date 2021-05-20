@@ -6,7 +6,7 @@
   <link href="https://salute-s.github.io/atom.xml" rel="self"/>
   
   <link href="https://salute-s.github.io/"/>
-  <updated>2021-05-17T14:23:23.139Z</updated>
+  <updated>2021-05-20T15:14:09.237Z</updated>
   <id>https://salute-s.github.io/</id>
   
   <author>
@@ -17,11 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Centos7部署PHP+Mysql+Apache</title>
+    <link href="https://salute-s.github.io/2021/052038006.html"/>
+    <id>https://salute-s.github.io/2021/052038006.html</id>
+    <published>2021-05-20T15:12:02.000Z</published>
+    <updated>2021-05-20T15:14:09.237Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>XMind思维导图XSS漏洞复现</title>
     <link href="https://salute-s.github.io/2021/05177225.html"/>
     <id>https://salute-s.github.io/2021/05177225.html</id>
     <published>2021-05-17T08:12:09.000Z</published>
-    <updated>2021-05-17T14:23:23.139Z</updated>
+    <updated>2021-05-20T15:18:08.614Z</updated>
     
     
       
@@ -50,7 +63,7 @@
     <link href="https://salute-s.github.io/2021/051762838.html"/>
     <id>https://salute-s.github.io/2021/051762838.html</id>
     <published>2021-05-17T04:46:42.000Z</published>
-    <updated>2021-05-17T14:24:19.893Z</updated>
+    <updated>2021-05-20T15:13:59.850Z</updated>
     
     
       
